@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body bgcolor="beige">
+    <div id="pedido">
+    <div id="nomes">
+        <center><h1>Tabela de Preços</h1>
+    <h2>lanches:</h2>
+    <p>X-Burger = 1,36 </p>
+    <p>X-Salada = 2.31</p>
+    <p>X-Egg = 2.81</p>
+    <p>X-Tudo = 3.21</p>
+    <input id="cliente1" type="number" min="1" max="4" autocomplete="off" width="20px" placeholder="Numero"/>
+    <button id="botao1" onclick="enviar1()">Escolher</button>
+
+    <h2>Acompanhamentos</h2>
+    <p>Nuggets = 3.69</p>
+    <p>Batata-Frita = 1.58</p>
+    <input id="cliente2" type="number" min="1" max="2" autocomplete="off" width="20px" placeholder="Numero"/>
+    <button id="botao2" onclick="enviar2()">Escolher</button>
+
+    <h2>Bebidas</h2>
+    <p>Coca-Cola = 1.48</p>
+    <p>Fanta = 2.58</p>
+    <p>Água = 0.98</p>
+    <input id="cliente3" type="number" min="1" max="3" autocomplete="off" width="20px" placeholder="Numero"/>
+    <button id="botao3" onclick="enviar3()">Escolher</button>
+</center>
+</div>
+
+    <div id="cardapio">
+    <script>
+        let escolhahamb ="";
+        let nomehamb="";
+        const nomelanches = ["X-Burger","X-Salada","X-Egg","X-Tudo"]
+        const hamburguer = [ 1.36, 2.31, 2.81, 3.21];
+        let esolhaacompanhamento =""
+        let nomeacompanhamento =""
+        const acompanhamento = [3.69, 1.58]
+        const nomeacom =["Nuggets","Batata-Frita"]
+        let escolhabebida =""
+        let nomebebida = ""
+        const valorbebida = [1.48,2.58,0.98]
+        const bebida=["Coca-Cola","Fanta","Água"]
+        function enviar1(){
+            let escolhalanche = document.getElementById("cliente1").value;
+            if (escolhalanche == 1){
+                escolhahamb = hamburguer[0]
+                nomehamb = nomelanches[0]
+            }
+            if (escolhalanche == 2){
+                escolhahamb = hamburguer[1]
+                nomehamb = nomelanches[1]
+            }if (escolhalanche == 3){
+                escolhahamb = hamburguer[2]
+                nomehamb = nomelanches[2]
+            }if (escolhalanche == 4){
+                escolhahamb = hamburguer[3]
+                nomehamb = nomelanches[3]
+               
+            }
+            
+        }
+        function enviar2(){
+            let escolhaacom = document.getElementById("cliente2").value;
+            if (escolhaacom == 1){
+                escolhaacompanhamento = acompanhamento[0]
+                nomeacompanhamento = nomeacom[0]
+            }
+            if (escolhaacom == 2){
+                escolhaacompanhamento = acompanhamento[1]
+                nomeacompanhamento = nomeacom[1]
+                
+                
+            }
+        }
+        function enviar3(){
+            let escolhabeb=document.getElementById("cliente3").value;
+            if (escolhabeb == 1 ){
+                escolhabebida = valorbebida [0]
+                nomebebida = bebida [0]
+            }
+            if (escolhabeb == 2 ){
+                escolhabebida = valorbebida [1]
+                nomebebida = bebida [1]
+            }if (escolhabeb == 3 ){
+                escolhabebida = valorbebida [2]
+                nomebebida = bebida [2]
+            }
+            document.getElementById("cardapio").innerHTML= 
+            "<center> <h1>Recibo </h1> </center>"+
+            "<center><h3><u>Seu Pedido</u></h3>" +
+                 nomehamb + " = " + escolhahamb + "</center>" + 
+                 "<center>" + nomeacompanhamento + " = " + escolhaacompanhamento  + "</center>"+ 
+                 "<center>" + nomebebida +  " = " + escolhabebida +  "</center>" +
+                 "<br>"+
+                 "<center> <u> <h3>" + "Total Do Pedido" + "</u><h3></center>" +
+                 "<center>" + "R$"+ (escolhahamb + escolhaacompanhamento + escolhabeb) + "</center>";
+                 
+        }
+       
+        
+            
+       
+        
+    </script>
+    </div>
+    </div>
+
+
+</body>
+</html>
